@@ -111,6 +111,10 @@ source $ZSH/oh-my-zsh.sh
 # export PATH=$PATH/usr/local/go/bin
 path+=('/usr/local/go/bin')
 
+# add go air 
+path+=('~/go/bin')
+
+
 # ocaml 
 
 eval $(opam env)
