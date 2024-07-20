@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 path+=('/usr/local/go/bin')
 
 # add go air 
-path+=('~/go/bin')
+path+=('/home/perry/go/bin')
 
 
 # ocaml 
