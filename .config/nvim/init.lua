@@ -207,28 +207,40 @@ require('lazy').setup({
   -- after the plugin has been loaded:
   --  config = function() ... end
 
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VimEnter', -- Sets the loading event to 'VimEnter'
-    config = function() -- This is the function that runs, AFTER loading
-      require('which-key').setup()
-
-      -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-      }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
-    end,
-  },
+  -- { -- Useful plugin to show you pending keybinds.
+  --   'folke/which-key.nvim',
+  --   event = 'VimEnter', -- Sets the loading event to 'VimEnter'
+  --   config = function() -- This is the function that runs, AFTER loading
+  --     require('which-key').setup()
+  --
+  --     -- Document existing key chains
+  --     require('which-key').add {
+  --       -- ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
+  --       -- ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
+  --       -- ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
+  --       -- ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  --       -- ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+  --       -- ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
+  --       -- ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+  --       -- convert to the new spec
+  --       { '<leader>c', group = '[C]ode' },
+  --       { '<leader>d', group = '[D]ocument' },
+  --       { '<leader>r', group = '[R]ename' },
+  --       { '<leader>s', group = '[S]earch' },
+  --       { '<leader>w', group = '[W]orkspace' },
+  --       { '<leader>t', group = '[T]oggle' },
+  --       { '<leader>h', group = 'Git [H]unk' },
+  --       {
+  --         mode = { 'v' },
+  --         { '<leader>h', 'Git [H]unk' },
+  --       },
+  --     }
+  --     -- -- visual mode
+  --     -- require('which-key').register({
+  --     --   ['<leader>h'] = { 'Git [H]unk' },
+  --     -- }, { mode = 'v' })
+  --   end,
+  -- },
 
   -- NOTE: Plugins can specify dependencies.
   --
@@ -501,8 +513,13 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         gopls = {},
+        ocamllsp = {},
+        htmx = {},
+        cssls = {},
+        templ = {},
         -- pyright = {},
         -- rust_analyzer = {},
+        --
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -733,12 +750,31 @@ require('lazy').setup({
       vim.cmd.colorscheme 'gruvbox-material'
 
       -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      -- vim.cmd.hi 'Comment gui=none'
     end,
   },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+
+  -- auto close html tags since I hate doing it
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {
+      -- Defaults
+      enable_close = true, -- Auto close tags
+      enable_rename = true, -- Auto rename pairs of tags
+      enable_close_on_slash = false, -- Auto close on trailing </
+    },
+    -- Also override individual filetype configs, these take priority.
+    -- Empty by default, useful if one of the "opts" global settings
+    -- doesn't work well in a specific filetype
+    per_filetype = {
+      ['html'] = {
+        enable_close = false,
+      },
+    },
+  },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -781,7 +817,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc', 'go', 'yaml', 'css', 'templ' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -789,9 +825,9 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        additional_vim_regex_highlighting = { 'ruby', 'ocaml' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 'ruby', 'ocaml' } },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -837,6 +873,7 @@ require('lazy').setup({
   -- These are mine
   require 'kickstart.plugins.copilot',
   require 'kickstart.plugins.lualine',
+  require 'kickstart.plugins.which_keys',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
