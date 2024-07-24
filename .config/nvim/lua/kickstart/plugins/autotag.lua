@@ -14,5 +14,30 @@ return {
   --     enable_close = false,
   --   },
   -- },
-  opts = {},
+  config = function()
+    -- I don't like this and it doen't work anyway
+    -- require('nvim-treesitter.configs').setup {
+    --   autotag = {
+    --     enable = true,
+    --     filetypes = { 'html', 'tmpl' },
+    --   },
+    -- }
+    require('nvim-ts-autotag').setup {
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+        enable_close_on_slash = true,
+      },
+      aliases = {
+        ['tmpl'] = 'html',
+      },
+      per_filetype = {
+        ['tmpl'] = {
+          enable_close = true,
+          enable_rename = true,
+          enable_close_on_slash = true,
+        },
+      },
+    }
+  end,
 }
