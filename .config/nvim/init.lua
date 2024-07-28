@@ -464,6 +464,7 @@ require('lazy').setup({
         htmx = {},
         cssls = {},
         templ = {},
+        tailwindcss = {},
         -- pyright = {},
         -- rust_analyzer = {},
         --
@@ -492,7 +493,7 @@ require('lazy').setup({
         },
 
         html = {
-          filetypes = { 'html', 'css', 'scss', 'template' },
+          filetypes = { 'html', 'css', 'scss', 'template', 'tmpl' },
         },
       }
 
