@@ -123,3 +123,14 @@ export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 . "$HOME/.cargo/env"
+
+# source <(fzf --zsh)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# Commands 
+alias bat='batcat' 
+alias inv='nvim $(fzf -m --preview="batcat  --style=numbers --color=always --line-range :500 {}")'
+alias edots='nvim $HOME/dotfiles/'
+
