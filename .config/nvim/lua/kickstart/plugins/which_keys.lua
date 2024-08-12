@@ -187,6 +187,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>w', group = '[W]orkspace' },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk' },
+      { '<leader>T', group = '[T]ailwind Tools' },
       {
         mode = { 'v' },
         { '<leader>h', 'Git [H]unk' },

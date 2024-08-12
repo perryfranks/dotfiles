@@ -20,5 +20,9 @@ return {
       },
       custom_filetypes = {}, -- see the extension section to learn how it works
     }
+
+    vim.keymap.set('n', '<leader>Tf', ':TailwindSort<CR>', { noremap = true, silent = true, desc = '[f]ormat all TailwindClasses' })
+    vim.keymap.set('n', '<leader>Th', ':TailwindConcealToggle<CR>', { noremap = true, silent = true, desc = 'Toggle conceal ([h]ide)' })
+    vim.keymap.set('n', '<leader>Tc', ':TailwindColorToggle<CR>', { noremap = true, silent = true, desc = 'Toggle [c]olors' })
   end,
 }
