@@ -192,6 +192,7 @@ return { -- Useful plugin to show you pending keybinds.
         mode = { 'v' },
         { '<leader>h', 'Git [H]unk' },
       },
+      { '<leader>p', group = 'Har[P]oon' },
     }
   end,
 }
