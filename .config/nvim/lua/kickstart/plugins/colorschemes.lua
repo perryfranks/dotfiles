@@ -5,8 +5,9 @@ return {
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'ribru17/bamboo.nvim',
+    'mcauley-penney/techbase.nvim',
     dependencies = {
+      'ribru17/bamboo.nvim',
       'diegoulloao/neofusion.nvim',
       'sainnhe/sonokai',
       'sainnhe/everforest',
@@ -18,6 +19,11 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     -- init = function()
     config = function()
+      -- require('bamboo').setup {}
+      -- require('bamboo').load()
+      vim.cmd.colorscheme 'techbase'
+      priority = 1000
+
       -- require('tokyonight').setup {
       --   style = 'night',
       --   transparent = false,
@@ -53,8 +59,6 @@ return {
       --   },
       -- }
       --
-      require('bamboo').setup {}
-      require('bamboo').load()
       -- vim.cmd.colorscheme 'bamboo'
     end,
   },
