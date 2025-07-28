@@ -5,13 +5,13 @@ return {
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
-    'mcauley-penney/techbase.nvim',
+    'sainnhe/gruvbox-material',
     dependencies = {
+      'mcauley-penney/techbase.nvim',
       'ribru17/bamboo.nvim',
       'diegoulloao/neofusion.nvim',
       'sainnhe/sonokai',
       'sainnhe/everforest',
-      'sainnhe/gruvbox-material',
       'rebelot/kanagawa.nvim',
       'scottmckendry/cyberdream.nvim',
     },
@@ -21,7 +21,7 @@ return {
     config = function()
       -- require('bamboo').setup {}
       -- require('bamboo').load()
-      vim.cmd.colorscheme 'techbase'
+      vim.cmd.colorscheme 'gruvbox-material'
       priority = 1000
 
       -- require('tokyonight').setup {

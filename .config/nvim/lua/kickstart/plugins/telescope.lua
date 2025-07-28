@@ -1,3 +1,5 @@
+-- on a new startup this local will cause some issues
+-- the lazy away around it is just comment these out
 local builtin = require 'telescope.builtin'
 local actions = require 'telescope.actions'
 
@@ -19,6 +21,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
   },
   config = function()
     require('telescope').setup {
+
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
