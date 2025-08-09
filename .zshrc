@@ -116,13 +116,11 @@ path+=('/home/perry/go/bin')
 
 
 # ocaml 
-
-eval $(opam env)
-
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-
-. "$HOME/.cargo/env"
+# eval $(opam env)
+#
+# export NVM_DIR=~/.nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+# . "$HOME/.cargo/env"
 
 # source <(fzf --zsh)
 
