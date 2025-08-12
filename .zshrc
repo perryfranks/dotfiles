@@ -125,10 +125,10 @@ path+=('/home/perry/go/bin')
 # source <(fzf --zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+xmodmap ~/.Xmodmap
 
 # Commands 
-alias bat='batcat' 
-alias inv='nvim $(fzf -m --preview="batcat  --style=numbers --color=always --line-range :500 {}")'
+# alias bat='batcat' 
+alias inv='nvim $(fzf -m --preview="bat  --style=numbers --color=always --line-range :500 {}")'
 alias edots='nvim $HOME/dotfiles/'
 
