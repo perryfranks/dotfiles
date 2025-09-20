@@ -11,7 +11,7 @@ configuration{
     display-run: " 🏃  Run ";
     display-window: " 🪟  Window";
     sidebar-mode: true;
-    font: "mono 26";
+    font: "Fira Code 16";
 }
 
-@theme "gruvbox-light"
+@theme "arthur"
