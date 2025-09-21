@@ -112,7 +112,9 @@ source $ZSH/oh-my-zsh.sh
 path+=('/usr/local/go/bin')
 
 # add go air 
-path+=('/home/perry/go/bin')
+path+=('/home/cubic/go/bin')
+
+path+=('home/cubic/.cargo/bin')
 
 
 # ocaml 

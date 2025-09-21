@@ -14,12 +14,17 @@ import catppuccin
 ## This is here so configs done via the GUI are still loaded.
 ## Remove it to not load settings done via the GUI.
 config.load_autoconfig(True)
-catppuccin.setup(c, "frappe", True)
-
+catppuccin.setup(c, 'frappe', True)
 ## Aliases for commands. The keys of the given dictionary are the
 ## aliases, while the values are the commands they map to.
 ## Type: Dict
-# c.aliases = {'w': 'session-save', 'q': 'close', 'qa': 'quit', 'wq': 'quit --save', 'wqa': 'quit --save'}
+c.aliases = {
+    'w': 'session-save', 
+    'q': 'close', 
+    'qa': 'quit', 
+    'wq': 'quit --save', 
+    'wqa': 'quit --save'
+}
 
 ## Time interval (in milliseconds) between auto-saves of
 ## config/cookies/etc.
@@ -293,7 +298,7 @@ catppuccin.setup(c, "frappe", True)
 
 ## Background color for the selected item in filename prompts.
 ## Type: QssColor
-# c.colors.prompts.selected.bg = 'black'
+# c.colors.prompts.selected.bg = 'grey'
 
 ## Foreground color for the selected item in filename prompts.
 ## Type: QssColor
@@ -612,7 +617,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## Width (in pixels) of the scrollbar in the completion window.
 ## Type: Int
-# c.completion.scrollbar.width = 12
+c.completion.scrollbar.width = 0
 
 ## When to show the autocompletion window.
 ## Type: String
@@ -637,7 +642,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## Execute the best-matching command on a partial match.
 ## Type: Bool
-# c.completion.use_best_match = False
+c.completion.use_best_match = True
 
 ## A list of patterns which should not be shown in the history. This only
 ## affects the completion. Matching URLs are still saved in the history
@@ -650,7 +655,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## Number of URLs to show in the web history. 0: no history / -1:
 ## unlimited
 ## Type: Int
-# c.completion.web_history.max_items = -1
+# c.completion.web_history.max_items = 10
 
 ## Require a confirmation before quitting the application.
 ## Type: ConfirmQuit
@@ -663,7 +668,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 
 ## Automatically start playing `<video>` elements.
 ## Type: Bool
-# c.content.autoplay = True
+# c.content.autoplay = False
 
 ## List of URLs to ABP-style adblocking rulesets.  Only used when Brave's
 ## ABP-style adblocker is used (see `content.blocking.method`).  You can
@@ -736,7 +741,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## to _n_ pages. For more information about the feature, please refer to:
 ## https://webkit.org/blog/427/webkit-page-cache-i-the-basics/
 ## Type: Int
-# c.content.cache.maximum_pages = 0
+# c.content.cache.maximum_pages = 20 
 
 ## Size (in bytes) of the HTTP network cache. Null to use the default
 ## value. With QtWebEngine, the maximum supported value is 2147483647 (~2
@@ -809,7 +814,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## Limit fullscreen to the browser window (does not expand to fill the
 ## screen).
 ## Type: Bool
-# c.content.fullscreen.window = False
+c.content.fullscreen.window = True
 
 ## Allow websites to request geolocations.
 ## Type: BoolAsk
@@ -1042,7 +1047,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## `:prompt-open-download --pdfjs` command (bound to `<Ctrl-p>` by
 ## default) can be used in the download prompt.
 ## Type: Bool
-# c.content.pdfjs = False
+c.content.pdfjs = True
 
 ## Allow websites to request persistent storage quota via
 ## `navigator.webkitPersistentStorage.requestQuota`.
@@ -1191,7 +1196,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## Valid values:
 ##   - top
 ##   - bottom
-# c.downloads.position = 'top'
+c.downloads.position = 'bottom'
 
 ## Automatically abort insecure (HTTP) downloads originating from secure
 ## (HTTPS) pages. For per-domain settings, the relevant URL is the URL
@@ -1212,7 +1217,7 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 ## Same as `{column}`, but starting from index 0.
 ## Type: ShellCommand
-# c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
 ## Encoding to use for the editor.
 ## Type: Encoding
@@ -1279,14 +1284,14 @@ c.colors.webpage.preferred_color_scheme = 'dark'
 ## font setting, it's replaced with the fonts listed here. If set to an
 ## empty value, a system-specific monospace default is used.
 ## Type: List of Font, or Font
-c.fonts.default_family = ["Fira Code", "FreeSans", "FreeSerif", "FreeMono"]
+c.fonts.default_family = ['fira code']
 
 ## Default font size to use. Whenever "default_size" is used in a font
 ## setting, it's replaced with the size listed here. Valid values are
 ## either a float value with a "pt" suffix, or an integer value with a
 ## "px" suffix.
 ## Type: String
-c.fonts.default_size = '14pt'
+c.fonts.default_size = '12pt'
 
 ## Font used for the downloadbar.
 ## Type: Font
@@ -1432,7 +1437,7 @@ c.fonts.default_size = '14pt'
 
 ## Padding (in pixels) for hints.
 ## Type: Padding
-# c.hints.padding = {'top': 0, 'bottom': 300, 'left': 3, 'right': 3}
+c.hints.padding = {'top': 0, 'bottom': 0, 'left': 2, 'right': 2}
 
 ## Comma-separated list of regular expressions to use for 'prev' links.
 ## Type: List of Regex
@@ -1440,7 +1445,7 @@ c.fonts.default_size = '14pt'
 
 ## Rounding radius (in pixels) for the edges of hints.
 ## Type: Int
-# c.hints.radius = 3
+c.hints.radius = 0
 
 ## Scatter hint key chains (like Vimium) or not (like dwb). Ignored for
 ## number hints.
@@ -1536,7 +1541,7 @@ c.fonts.default_size = '14pt'
 ## cleared after this time. If set to 0, partially typed bindings are
 ## never cleared.
 ## Type: Int
-# c.input.partial_timeout = 0
+c.input.partial_timeout = 6000
 
 ## Enable spatial navigation. Spatial navigation consists in the ability
 ## to navigate between focusable elements, such as hyperlinks and form
@@ -1620,7 +1625,7 @@ c.fonts.default_size = '14pt'
 
 ## Rounding radius (in pixels) for the edges of prompts.
 ## Type: Int
-# c.prompt.radius = 8
+c.prompt.radius = 0
 
 ## Additional arguments to pass to Qt, without leading `--`. With
 ## QtWebEngine, some Chromium arguments (see
@@ -1767,7 +1772,7 @@ c.fonts.default_size = '14pt'
 ##   - never: Never show the scrollbar.
 ##   - when-searching: Show the scrollbar when searching for text in the webpage. With the QtWebKit backend, this is equal to `never`.
 ##   - overlay: Show an overlay scrollbar. On macOS, this is unavailable and equal to `when-searching`; with the QtWebKit backend, this is equal to `never`. Enabling/disabling overlay scrollbars requires a restart.
-# c.scrolling.bar = 'overlay'
+c.scrolling.bar = 'overlay'
 
 ## Enable smooth scrolling for web pages. Note smooth scrolling does not
 ## work with the `:scroll-px` command.
@@ -1858,7 +1863,7 @@ c.scrolling.smooth = True
 
 ## Padding (in pixels) for the statusbar.
 ## Type: Padding
-c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 3, 'right': 5}
+c.statusbar.padding = {'top': 1, 'bottom': 2, 'left': 2, 'right': 2}
 
 ## Position of the status bar.
 ## Type: VerticalPosition
@@ -1888,7 +1893,7 @@ c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 3, 'right': 5}
 ##   - progress: Progress bar for the current page loading.
 ##   - text:foo: Display the static text after the colon, `foo` in the example.
 ##   - clock: Display current time. The format can be changed by adding a format string via `clock:...`. For supported format strings, see https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes[the Python datetime documentation].
-c.statusbar.widgets = ['keypress', 'search_match', 'scroll', 'history', 'tabs', 'progress']
+c.statusbar.widgets = ['keypress', 'search_match', 'scroll', 'history', 'progress']
 
 ## Open new tabs (middleclick/ctrl+click) in the background.
 ## Type: Bool
@@ -2005,7 +2010,7 @@ c.tabs.background = True
 
 ## Padding (in pixels) around text for tabs.
 ## Type: Padding
-c.tabs.padding = {'top': 1, 'bottom': 1, 'left': 5, 'right': 5}
+# c.tabs.padding = {'top': 0, 'bottom': 0, 'left': 5, 'right': 5}
 
 ## Force pinned tabs to stay at fixed URL.
 ## Type: Bool
@@ -2056,7 +2061,7 @@ c.tabs.padding = {'top': 1, 'bottom': 1, 'left': 5, 'right': 5}
 ##   - left
 ##   - right
 ##   - center
-# c.tabs.title.alignment = 'left'
+c.tabs.title.alignment = 'left'
 
 ## Position of ellipsis in truncated title of tabs.
 ## Type: ElidePosition
@@ -2157,15 +2162,15 @@ c.tabs.padding = {'top': 1, 'bottom': 1, 'left': 5, 'right': 5}
 ## qutebrowser`.
 ## Type: Dict
 c.url.searchengines = {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
-    '!g:': 'https://www.google.com/search?q={}',
-    '!yt:': 'https://www.youtube.com/search?q={}'
+    'DEFAULT': 'https://duckduckgo.com/?q={}', 
+    '!yt': 'https://www.youtube.com/results?search_query={}',
+    '!g': 'https://www.google.com/search?q={}',
+    '!gi': 'https://www.google.com/search?tbm=isch&q={}'
 }
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = ['file:///home/cubic/.config/qutebrowser/qute-cheatsheet']
-
+# c.url.start_pages = ['https://start.duckduckgo.com']
 
 ## URL parameters to strip when yanking a URL.
 ## Type: List of String
@@ -2174,7 +2179,7 @@ c.url.start_pages = ['file:///home/cubic/.config/qutebrowser/qute-cheatsheet']
 ## Hide the window decoration.  This setting requires a restart on
 ## Wayland.
 ## Type: Bool
-c.window.hide_decoration = False 
+# c.window.hide_decoration = False
 
 ## Format to use for the window title. The same placeholders like for
 ## `tabs.title.format` are defined.
@@ -2188,11 +2193,11 @@ c.window.hide_decoration = False
 ## that main window transparency negatively affects performance.  Note
 ## this setting only affects windows opened after setting it.
 ## Type: Bool
-c.window.transparent = False
+# c.window.transparent = False
 
 ## Default zoom level.
 ## Type: Perc
-c.zoom.default = '110%'
+# c.zoom.default = '100%'
 
 ## Available zoom levels.
 ## Type: List of Perc
@@ -2207,6 +2212,7 @@ c.zoom.default = '110%'
 # c.zoom.text_only = False
 
 ## Bindings for normal mode
+config.bind(',i', 'config-cycle -t colors.webpage.darkmode.enabled false true')
 # config.bind("'", 'mode-enter jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
@@ -2518,3 +2524,4 @@ c.zoom.default = '110%'
 # config.bind('Y', 'prompt-accept --save yes', mode='yesno')
 # config.bind('n', 'prompt-accept no', mode='yesno')
 # config.bind('y', 'prompt-accept yes', mode='yesno')
+

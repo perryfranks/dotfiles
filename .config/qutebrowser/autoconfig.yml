@@ -6,9 +6,16 @@
 
 config_version: 2
 settings:
+  colors.webpage.darkmode.algorithm:
+    global: lightness-cielab
+  colors.webpage.darkmode.contrast:
+    global: 0.0
+  colors.webpage.darkmode.enabled:
+    global: false
   content.javascript.clipboard:
-    https://aur.archlinux.org: none
+    https://chatgpt.com: access-paste
     https://github.com: access-paste
   content.notifications.enabled:
-    https://umatechnology.org: false
     https://www.youtube.com: false
+  content.register_protocol_handler:
+    https://mail.google.com?extsrc=mailto&url=%25s: false
