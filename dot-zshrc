@@ -24,16 +24,6 @@ source $HOME/.config/headline.zsh-theme
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -115,6 +105,9 @@ path+=('/usr/local/go/bin')
 path+=('/home/cubic/go/bin')
 
 path+=('/home/cubic/.cargo/bin')
+
+# python pip installs 
+path+=('/home/perry/.local/bin/')
 
 
 # ocaml 
