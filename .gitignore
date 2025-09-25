@@ -1,2 +1,5 @@
 .config/alacritty/themes/
+dot-config/alacritty/themes/
+
 .config/qutebrowser/catppuccin/
+dot-config/qutebrowser/catppuccin/

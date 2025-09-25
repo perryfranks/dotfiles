@@ -1,0 +1,34 @@
+// loock in the themes file for most of the settings 
+configuration{
+    // function
+    // modi: "run,window,combi";
+    modi: "drun";
+
+    display-combi: " 🖥️  All ";
+    display-run: " 🏃  Run ";
+    display-window: " 🪟  Window";
+    drun-display-format: "{icon} {name}";
+
+    // looks 
+    // icons 
+    icon-theme: "Oranchelo";
+    show-icons: true;
+
+
+    fixed-num-lines: false;
+    location: 1;
+    disable-history: false;
+    hide-scrollbar: true;
+    sidebar-mode: true;
+
+
+    // font: "Hack Nerd Font 10";
+
+    // misc
+    terminal: "alacritty";
+}
+
+//@theme "arthur"
+
+// @theme "/home/cubic/.local/share/rofi/themes/squared-everforest.rasi"
+@theme "~/.config/rofi/mine-squared-everforest.rasi"
