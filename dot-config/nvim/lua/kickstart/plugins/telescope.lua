@@ -43,6 +43,7 @@ if pcall(require, 'telescope') then
               ['dd'] = actions.delete_buffer,
             },
           },
+          file_ignore_patterns = { 'target' },
         },
 
         extensions = {

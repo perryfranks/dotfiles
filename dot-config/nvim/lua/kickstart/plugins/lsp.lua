@@ -160,6 +160,7 @@ return { -- LSP Configuration & Plugins
       html = {
         filetypes = { 'html', 'css', 'scss', 'template', 'tmpl' },
       },
+      shfmt = {},
     }
 
     -- Ensure the servers and tools above are installed
